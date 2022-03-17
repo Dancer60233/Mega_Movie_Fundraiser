@@ -1,10 +1,10 @@
-#16/3/22
+#18/3/22
 #Kate barber
 # MMF V1- Name not blank
 
 
 #Functions   
-def not_blank(question):
+def not_blank(question, error_message):
   valid = False
 
   while not valid:
@@ -14,10 +14,12 @@ def not_blank(question):
       return response
 
     else:
-      print("Sorry - this can't be blank")
+      print(error_message)
 
 #Main Routine
 
-name= not_blank("Name: ")
+name= not_blank("Name: ", 
+                "Sorry- this can't be blank, "
+                "please enter your name")
   
      

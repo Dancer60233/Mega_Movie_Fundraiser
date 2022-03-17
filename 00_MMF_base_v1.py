@@ -1,7 +1,23 @@
 #import statements
 
 
-#functions go here
+#*********functions go here*************
+
+#Check that ticket name isn't blank
+def not_blank(question):
+  valid = False
+
+  while not valid:
+    response = input(question)
+    
+    #If name is not blank program continues
+    if response != "":
+      return response
+   #If name is blank, show error (& repeat loop)
+    else:
+      print("Sorry - this can't be blank, "
+            "please enter your name")
+
 
 
 #************* Main Routine ****************
@@ -12,7 +28,8 @@
 
 #Loop to get ticket details
 
- #Get name (Can't be blanl)
+ #Get name (Can't be blank)
+ name= not_blank("Name: ")
 
  #Get age (Between 12 and 130)
 
