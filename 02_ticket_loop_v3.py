@@ -1,6 +1,6 @@
-#21/3/22
+#23/3/22
 #Kate barber
-# MMF Ticket loop- V2
+# MMF Ticket loop- V3
 
 # start of loop
 
@@ -9,10 +9,13 @@ count = 0
 MAX_TICKETS = 5
 
 while name != "xxx" and count < MAX_TICKETS:
- #Tells users how many seats are left
- print("You have {} seats left".format(MAX_TICKETS-count))
+ #Tellsusers how many seats are left
+  if count < 4:
+    print("You have {} seats left".format(MAX_TICKETS-count))
     
-
+  #Warns user that there is only one seat left
+  else:
+    print("*** There is ONE seat left!! ***")
 
  #Get details....
   name = input("Name: ")
