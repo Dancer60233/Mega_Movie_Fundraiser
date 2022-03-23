@@ -12,7 +12,12 @@ def int_check(question, low_num, high_num):
    #ask user for number and check it is valid
   try:
     response = int(input(question))
-    return response
+
+    #Checks if number is in range
+    if low_num <= response <= high_num:
+     return response     
+    else:
+      print(error)
     
   #if an interger us not enterd, display an error message   
   except ValueError:
