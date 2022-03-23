@@ -19,7 +19,7 @@ def int_check(question, low_num, high_num):
     else:
       print(error)
     
-  #if an interger us not enterd, display an error message   
+  #if an interger us not entered, display an error message   
   except ValueError:
     print(error)
 
