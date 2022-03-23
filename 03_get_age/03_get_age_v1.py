@@ -22,8 +22,3 @@ def get_age(question):
 
 #main routine
 age = get_age("Age:")
-#try:
-  #age = int(input("Age:"))
-
-#except:
-  #print("Invalid age")
