@@ -40,16 +40,17 @@ def int_check(question):
   except ValueError:
     print(error)
 
-#main routine
-name = ""
-count = 0
+#******************main routine***********
 MAX_TICKETS = 5
-profit = 0
 
-while name != "xxx" and count < MAX_TICKETS:
+name = ""
+ticket_count = 0
+ticket_sales= 0
+
+while name != "xxx" and ticket_count < MAX_TICKETS:
  #Tellsusers how many seats are left
-  if count < 4:
-    print("You have {} seats left".format(MAX_TICKETS-count))
+  if ticket_count < MAX_TICKETS -1:
+    print("You have {} seats left".format(MAX_TICKETS-ticket_count))
     
   #Warns user that there is only one seat left
   else:
@@ -78,7 +79,6 @@ while name != "xxx" and count < MAX_TICKETS:
     print("That is very old - it looks like a mistake")
     continue 
 
-  count += 1
 
   #Calculate ticket price
   if age < 16:
@@ -88,22 +88,20 @@ while name != "xxx" and count < MAX_TICKETS:
   else:
    ticket_price = 10.5
 
+  ticket_count += 1
+  ticket_sales += ticket_price
 
-  #Calculate Profit 
-  profit_made = ticket_price - 5
-  profit += profit_made
+  #End of Ticket Loop
   
-  print("{} : ${:.2f}\n".format(name, ticket_price))
- 
-  
-    
+#Calculate Ticket Profit
+ticket_profit = ticket_sales - (5 * ticket_count)
+print("Ticketprofit: ${:.2f}".format(ticket_profit))
 
-
-if count == MAX_TICKETS:
+if ticket_count == MAX_TICKETS:
   print("You have sold all available tickets!")
    
 else:
-   print("You have sold {} tickets. \nThere are {} places still available".format(count,MAX_TICKETS-count))
+   print("You have sold {} tickets. \nThere are {} places still available".format(ticket_count,MAX_TICKETS-ticket_count))
    
   
 
