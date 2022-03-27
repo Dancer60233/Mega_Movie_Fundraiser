@@ -44,6 +44,7 @@ def int_check(question):
 name = ""
 count = 0
 MAX_TICKETS = 5
+profit = 0
 
 while name != "xxx" and count < MAX_TICKETS:
  #Tellsusers how many seats are left
@@ -78,6 +79,23 @@ while name != "xxx" and count < MAX_TICKETS:
     continue 
 
   count += 1
+
+  #Calculate ticket price
+  if age < 16:
+   ticket_price = 7.5
+  elif age >= 65:
+   ticket_price = 6.5
+  else:
+   ticket_price = 10.5
+
+
+  #Calculate Profit 
+  profit_made = ticket_price - 5
+  profit += profit_made
+  
+  print("{} : ${:.2f}\n".format(name, ticket_price))
+ 
+  
     
 
 
@@ -88,10 +106,6 @@ else:
    print("You have sold {} tickets. \nThere are {} places still available".format(count,MAX_TICKETS-count))
    
   
-
-
-
- #Calculate ticket price
 
  #Loop to ask for snacks
 

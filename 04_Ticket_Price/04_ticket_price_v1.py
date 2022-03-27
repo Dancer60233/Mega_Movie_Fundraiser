@@ -29,6 +29,6 @@ while name != "xxx":
   profit_made = ticket_price - 5
   profit += profit_made
   
-  print("{} : ${:.2f}".format(name, ticket_price))
+  print("{} : ${:.2f}\n".format(name, ticket_price))
 
-print("Profit from Ticket Prices is ${:.2f}".format(profit))
+print("\nProfit from Ticket Prices is ${:.2f}".format(profit))
