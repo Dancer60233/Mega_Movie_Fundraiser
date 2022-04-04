@@ -43,11 +43,23 @@ valid_snacks =[
   ["pita chips", "chips", "pc", "pita", "c"],
   ["water", "w", "aqua", "d"]
 ]
+
+yes_no = [
+  ["yes", "y"],
+  ["no", "n"],
+]
        
        
     
 
 #*********** Main routine **********
+check_snack = "invalid choice"
+while check_snack == "invalid choice":
+  want_snack = input("Do you want to order snacks?").lower()
+  check_snack = string_check(want_snack, yes_no)
+  
+
+
 
 # loop six times to make testing quicker
 for item in range (0,6):
