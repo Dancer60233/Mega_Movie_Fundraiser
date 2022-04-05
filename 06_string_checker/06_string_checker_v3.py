@@ -47,22 +47,31 @@ valid_snacks =[
 yes_no = [
   ["yes", "y"],
   ["no", "n"],
+  ["xxx"],
 ]
-       
-       
+
+snacks_ordered = [
+  
+]
+
+#--------Variables----------
+desired_snack = ""
+snack_count = 0
     
 
 #*********** Main routine **********
+
+
 check_snack = "invalid choice"
 while check_snack == "invalid choice":
-  want_snack = input("Do you want to order snacks?").lower()
+  want_snack = input("Do you want to order snacks? ").lower()
   check_snack = string_check(want_snack, yes_no)
   
 
+if check_snack == "Yes":
 
-
-# loop six times to make testing quicker
-for item in range (0,6):
+ # loop six times to make testing quicker
+ while desired_snack != "xxx" and snack_count < 6:
 
   #ask user for desired snack and put it in lowercase
   desired_snack = input("Snack: ").lower()
@@ -70,4 +79,9 @@ for item in range (0,6):
   #check if snack is valid
   snack_choice = string_check(desired_snack, valid_snacks)
   print("Snack Choice:",snack_choice)
+  if snack_choice != "invalid choice":
+    snacks_ordered.append(snack_choice)
+    snack_count += 1
+
+print("Snacks Ordered: ",snacks_ordered)
  
