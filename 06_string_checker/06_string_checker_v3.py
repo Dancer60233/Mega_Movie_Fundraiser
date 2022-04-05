@@ -78,10 +78,12 @@ if check_snack == "Yes":
 
   #check if snack is valid
   snack_choice = string_check(desired_snack, valid_snacks)
-  print("Snack Choice:",snack_choice)
   if snack_choice != "invalid choice":
     snacks_ordered.append(snack_choice)
     snack_count += 1
+  else:
+    print("Invalid choice!")
 
-print("Snacks Ordered: ",snacks_ordered)
+print("\nSnacks Ordered:")
+print(*snacks_ordered, sep = "\n")
  
