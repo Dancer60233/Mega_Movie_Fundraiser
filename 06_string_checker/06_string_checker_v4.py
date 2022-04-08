@@ -53,11 +53,10 @@ yes_no = [
 
 #holds snack order for single user
 snacks_order = []
-amount_snacks = []
+
 
 #--------Variables----------
 desired_snack = ""
-snack_count = 0
 
  #regular expression to find if item starts with a number
 number_regex = "^[1-9]"
@@ -86,31 +85,35 @@ if check_snack == "Yes":
    #if item has a number, seperate it into two (number and letters)
    if re.match(number_regex, desired_snack):
     amount = int(desired_snack[0])
-    snack_choice = desired_snack[1:].strip()
+    desired_snack = desired_snack[1:]
 
 # if item does not have number in front set number to 1
    else:
     amount = 1
-    snack_choice = desired_snack.strip()  
+    desired_snack = desired_snack
 
+  #Remove white space around snack
+   desired_snack = desired_snack.strip()
+
+   
    #check if snack is valid  
-   snack_choice = string_check(snack_choice, valid_snacks)
+   snack_choice = string_check(desired_snack, valid_snacks)
+
+   #check amount is valid
+   if amount >= 5:
+     print("Sorry - we have a four snack maximum")
+     snack_choice = "invalid choice"
    
      
 
-# remove white space around snack
-   print("Snack Choice:" ,snack_choice)
-   print("Amount:", amount)
-   print("Length of snack:", len(desired_snack))
+     #add snack AND amount to list
+   amount_snack = "{} {}".format(amount, snack_choice)
 
-   #add snack to list...
-
-   # check that snack is not the exit code or invalid choice before adding
+    # check that snack is not the exit code or invalid choice before adding
    if snack_choice != "xxx" and snack_choice != "invalid choice":
-    snacks_order.append(snack_choice)
-    amount_snacks.append(amount)
+    snacks_order.append(amount_snack)
+
     
-  
    
 #show snack orders
 
@@ -119,5 +122,5 @@ if len(snacks_order) == 0:
 
 else:
  print("\nSnacks Ordered:")
- print(* amount_snacks, * snacks_order, sep = "\n")
+ print(* snacks_order, sep = "\n")
  
