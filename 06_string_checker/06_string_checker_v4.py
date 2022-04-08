@@ -5,6 +5,10 @@
 import re
 
 #lists
+
+#Valid snacks holds list of all snacks
+#Each item in valid snacks is a list with valid optuons for each snack
+#<full name, letter code(a - e), and possible abbreviations etc
 valid_snacks =[
   ["popcorn", "p", "corn", "a"],
   ["M&M's", "m&m's", "mms", "m", "b"],
@@ -36,15 +40,7 @@ def string_check(choice, options):
 
 
 
-#Valid snacks holds list of all snacks
-#Each item in valid snacks is a list with valid optuons for each snack
-#<full name, letter code(a - e), and possible abbreviations etc
-valid_snacks =[
-  ["popcorn", "p", "corn", "a"],
-  ["M&M's", "m&m's", "mms", "m", "b"],
-  ["pita chips", "chips", "pc", "pita", "c"],
-  ["water", "w", "aqua", "d"]
-]
+
 
 yes_no = [
   ["yes", "y"],
@@ -94,13 +90,18 @@ if check_snack == "Yes":
 
   #Remove white space around snack
    desired_snack = desired_snack.strip()
-
+  
    
    #check if snack is valid  
    snack_choice = string_check(desired_snack, valid_snacks)
 
-   #check amount is valid
-   if amount >= 5:
+   if snack_choice == "invalid choice":
+    print("Please enter a valid option")
+     
+     
+     #check amount is valid
+     
+   elif amount >= 5:
      print("Sorry - we have a four snack maximum")
      snack_choice = "invalid choice"
    
