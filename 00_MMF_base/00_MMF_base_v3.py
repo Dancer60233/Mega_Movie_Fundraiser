@@ -1,6 +1,5 @@
 #import statements
 
-import re
 import pandas
 
 #*********functions go here*************
@@ -55,9 +54,8 @@ def int_check(question):
 #Checks maximum umber of tickets and warns user if maximum is being approached
 def check_tickets(tickets_sold, ticket_limit):
    #Tells users how many seats are left
-  if ticket_sold < ticket_limit -1:
-    print("You have {} seats left"
-          "left".format(ticket_limit - tickets_sold))
+  if tickets_sold < ticket_limit -1:
+    print("You have {} seats left ".format(ticket_limit - tickets_sold))
     
   #Warns user that there is only one seat left
   else:
@@ -69,7 +67,7 @@ def check_tickets(tickets_sold, ticket_limit):
 
 def get_ticket_price():
   #get  age (between 12 and 130)
-  age = int_check("Age:") 
+  age = int_check("Age: ") 
 
   #check that age is valid
   if age < 12:
