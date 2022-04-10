@@ -44,7 +44,26 @@ def int_check(question):
 
 #******************main routine***********
 
-   
+def tickets_left():
+   #Tells users how many seats are left
+  if ticket_count < MAX_TICKETS -1:
+    print("You have {} seats left".format(MAX_TICKETS-ticket_count))
+    
+  #Warns user that there is only one seat left
+  else:
+    print("*** There is ONE seat left!! ***")
+
+def ticket_price():
+  age = int_check("Age:") 
+
+  #check that age is valid
+
+  if age < 12:
+    print("Sorry you are too young for this movie")
+    continue
+  elif age > 130:
+    print("That is very old - it looks like a mistake")
+    continue 
 
 
   #Calculate ticket price
@@ -78,13 +97,7 @@ ticket_sales= 0
 
 while name != "xxx" and ticket_count < MAX_TICKETS:
 
-  if ticket_count < MAX_TICKETS -1:
-    print("You have {} seats left".format(MAX_TICKETS-ticket_count))
-    
-  #Warns user that there is only one seat left
-  else:
-    print("*** There is ONE seat left!! ***")
-
+  tickets_left()
 
  #Get details....
     
@@ -95,19 +108,7 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
   if name == "xxx":
     break
     
-  #Tells users how many seats are left
   
-
-  age = int_check("Age:") 
-
-  #check that age is valid
-
-  if age < 12:
-    print("Sorry you are too young for this movie")
-    continue
-  elif age > 130:
-    print("That is very old - it looks like a mistake")
-    continue 
 
   #Get age (Between 12 and 130)
   
