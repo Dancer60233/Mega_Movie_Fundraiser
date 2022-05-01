@@ -319,7 +319,6 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
 #End of Tickets / snacks / payment Loop
   
 #print details...
-
 movie_frame = pandas.DataFrame(movie_data_dict)
 print(movie_frame)
 
