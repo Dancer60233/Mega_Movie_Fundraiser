@@ -53,10 +53,7 @@ def int_check(question):
   except ValueError:
     print(error)
 
-#******************main routine***********
 
-
-#Checks maximum umber of tickets and warns user if maximum is being approached
     
 
 def check_tickets(tickets_sold, ticket_limit):
@@ -101,22 +98,6 @@ def get_ticket_price():
   
 
 
-
-#****************************** Main Routine ****************
-
-#Set up dictionaries / lists needed to hold data
-
-#Ask user if they have used the program before and show instructions
-
-
-#Loop to get Ticket details
-#start of loop
-
-#initialise loop so that it runs at least once
-
-#****************************** Main Routine ****************
-
-#Set up dictionaries / lists needed to hold data
 
 
 
@@ -232,6 +213,8 @@ def get_snack():
   #Set up dictionaries / lists needed to hold data
 
   # list for valid yes / no responses
+
+
 yes_no = [
   ["yes", "y"],
   ["no", "n"],
