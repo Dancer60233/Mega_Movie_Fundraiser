@@ -42,14 +42,19 @@ while name != "xxx":
   name = input("Name: ")
   if name == "xxx":
     break
-  sub_total = input("Sub Total:")
-  pay_choice = input("What payment method are you using? ").lower()
-  check_pay = string_check(pay_choice, pay_method)
 
-  #Calculate sur charge  
-  if check_pay == "Credit":
-    total = sub_total * SURCHARGE
-  elif check_pay == "Cash":
+  #ask for payment method
+  how_pay = "invalid choice"
+  while how_pay == "invalid choice":
+    
+   how_pay = input("Please choose a payment method (cash or credit) ").lower()
+   how_pay = string_check(how_pay, pay_method)
+ 
+  #ask for a subtotal (for testing purposes)
+  subtotal = float(input("Sub total? $"))
+  if how_pay == "Credit":
+    surcharge = 0.05 * subtotal
+  else: 
     total = sub_total
   print (total)
 
