@@ -55,6 +55,11 @@ while name != "xxx":
   if how_pay == "Credit":
     surcharge = 0.05 * subtotal
   else: 
-    total = sub_total
-  print (total)
+    surcharge = 0
+
+  total = subtotal + surcharge 
+
+  print("Name: {} | Subtotal: ${:.2f} | Surcharge: ${:.2f} | \nTotal Payable: ${:.2f} \n".format(name, subtotal, surcharge, total))
+
+
 
