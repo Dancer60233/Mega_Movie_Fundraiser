@@ -201,7 +201,7 @@ def get_snack():
   # check that snack is not the exit code or invalid choice before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
      snack_order.append(snack_row)
-     return snack_order
+
 
    
 
@@ -312,37 +312,21 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
   
 #If they say yes, ask wha snacks they want and add to our snack list
    if check_snack == "Yes":
-    get_order = get_snack()
+    snack_order = get_snack()
 
    else:
-    get_order=[]
+    snack_order=[]
 
-    
-   
-#show snack orders
+   for item in snack_lists:
+        item.append(0)
 
-  if len(get_order) == 0:
-   print("\nSnacks Ordered: None")
-
-  else:
-   print("\nSnacks Ordered:")
-   print(* get_order, sep = "\n")
-
-    # Assume no snacks have been bought...
-  for item in snack_lists:
-    item.append(0)
-
-    # print(snack_lists)
-    count = 0
-    # get order (hard coded for easy testing)...
-    count += 1
-
-    for item in get_order:
+  for item in snack_order:
         if len(item) > 0:
             to_find = (item[1])
             amount = (item[0])
             add_list = movie_data_dict[to_find]
             add_list[-1] = amount
+
 
 
 #Get Payment method (ie: work out if surcharge is needed)
