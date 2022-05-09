@@ -201,6 +201,7 @@ def get_snack():
   # check that snack is not the exit code or invalid choice before adding
     if snack_choice != "xxx" and snack_choice != "invalid choice":
      snack_order.append(snack_row)
+     return snack_order
 
    
 
@@ -217,6 +218,9 @@ def get_snack():
 #Set up dictionaries / lists needed to hold data
 
 # list for valid yes / no responses
+
+
+
 yes_no = [
   ["yes", "y"],
   ["no", "n"],
@@ -237,11 +241,32 @@ ticket_sales= 0
 #Intialise lists ( to mae data-frame in due course)
 all_names = []
 all_tickets = []
+popcorn = []
+mms = []
+pita_chips = []
+water = []
+orange_juice = []
+
+snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
 
 #Data Frame Dictionary
 movie_data_dict = {
-  'Name': all_names,
-  'Ticket': all_tickets
+    'Name': all_names,
+    'Ticket': all_tickets,
+    'Popcorn': popcorn,
+    'Water': water,
+    'Pita Chips': pita_chips,
+    'M&Ms': mms,
+    'Orange Juice': orange_juice
+    }
+
+#cost of each snack
+price_dict = {
+  'Popcorn': 2.5,
+  'Water': 2,
+  'Pita Chips': 4.5,
+  'M&Ms': 3,
+  'Orange Juice': 3.25,
 }
 
 
@@ -303,6 +328,22 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
    print("\nSnacks Ordered:")
    print(* get_order, sep = "\n")
 
+    # Assume no snacks have been bought...
+  for item in snack_lists:
+    item.append(0)
+
+    # print(snack_lists)
+    count = 0
+    # get order (hard coded for easy testing)...
+    count += 1
+
+    for item in get_order:
+        if len(item) > 0:
+            to_find = (item[1])
+            amount = (item[0])
+            add_list = movie_data_dict[to_find]
+            add_list[-1] = amount
+
 
 #Get Payment method (ie: work out if surcharge is needed)
   how_pay = "invalid choice"
@@ -321,7 +362,26 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
 #End of Tickets / snacks / payment Loop
   
 #print details...
+print()
+
+#Create dataframe and set index to name column
 movie_frame = pandas.DataFrame(movie_data_dict)
+movie_frame = movie_frame.set_index('Name')
+
+#create column called 'Sub Total'
+# fill in price for snacks and tickets
+
+movie_frame["Sub Total"] = \
+  movie_frame['Ticket'] + \
+  movie_frame['Popcorn']*price_dict['Popcorn'] + \
+  movie_frame['Water']*price_dict['Water'] + \
+  movie_frame['Pita Chips']*price_dict['Pita Chips'] + \
+  movie_frame['M&Ms']*price_dict['M&Ms'] + \
+  movie_frame['Orange Juice']*price_dict['Orange Juice']
+
+#Shorten Column names
+#movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ',
+#                                        'Pita Chips': 'Chips'})
 print(movie_frame)
 
 #calculate ticket profit

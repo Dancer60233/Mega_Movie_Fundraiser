@@ -3,7 +3,6 @@ import pandas
 # Initialise snack lists...
 all_names = ['Rangi', 'Manaia', 'Talia', 'Arihi', 'Fetu']
 all_tickets = [7.5, 10.5, 10.5, 10.5, 6.5]
-
 popcorn = []
 mms = []
 pita_chips = []
