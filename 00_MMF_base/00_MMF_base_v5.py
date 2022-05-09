@@ -305,6 +305,17 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
 
 
 #Get Payment method (ie: work out if surcharge is needed)
+  how_pay = "invalid choice"
+  while how_pay == "invalid choice":
+   how_pay = input("Please choose a payment method (cash or credit) ").lower()
+   how_pay = string_check(how_pay, pay_method)
+   if how_pay == "invalid choice":
+     print("Please enter a valid choice")
+
+  if how_pay == "Credit":
+    surcharge_multiplier = 0.05
+  else: 
+    surcharge_multiplier = 0
   
 
 #End of Tickets / snacks / payment Loop

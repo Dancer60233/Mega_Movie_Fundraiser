@@ -53,6 +53,7 @@ while name != "xxx":
  
   #ask for a subtotal (for testing purposes)
   subtotal = float(input("Sub total? $"))
+  
   if how_pay == "Credit":
     surcharge = 0.05 * subtotal
   else: 
