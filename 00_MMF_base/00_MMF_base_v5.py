@@ -364,8 +364,8 @@ movie_frame["Sub Total"] = \
   movie_frame['Orange Juice']*price_dict['Orange Juice']
 
 #Shorten Column names
-#movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ',
-#                                        'Pita Chips': 'Chips'})
+movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ',
+                                        'Pita Chips': 'Chips'})
 print(movie_frame)
 
 #calculate ticket profit
