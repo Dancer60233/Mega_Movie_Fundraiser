@@ -358,18 +358,20 @@ print()
 movie_frame = pandas.DataFrame(movie_data_dict)
 movie_frame = movie_frame.set_index('Name')
 
-#create column called 'ub Total'
+#create column called 'Snack Total'
 # fill in price for snacks and tickets
 
-movie_frame["Sub Total"] = \
-  movie_frame['Ticket'] + \
+movie_frame["Snack Total"] = \
   movie_frame['Popcorn']*price_dict['Popcorn'] + \
   movie_frame['Water']*price_dict['Water'] + \
   movie_frame['Pita Chips']*price_dict['Pita Chips'] + \
   movie_frame['M&Ms']*price_dict['M&Ms'] + \
   movie_frame['Orange Juice']*price_dict['Orange Juice']
 
-
+#create column called 'Sub Total'
+movie_frame["Sub Total"] = \
+  movie_frame['Ticket'] + \
+  movie_frame['Snack Total']
 
 #create column called 'Surcharge'
 movie_frame["Surcharge"] = \
@@ -392,7 +394,7 @@ pandas.set_option('display.max_columns', None)
 pandas.set_option('display.precision', 2)
 
 
-print(movie_frame[['Ticket', 'Sub Total', 'Surcharge', 'Total']])
+print(movie_frame[['Ticket', 'Snack Total', 'Sub Total', 'Surcharge', 'Total']])
 
 #calculate ticket profit
 ticket_profit = ticket_sales - (5 * ticket_count)
