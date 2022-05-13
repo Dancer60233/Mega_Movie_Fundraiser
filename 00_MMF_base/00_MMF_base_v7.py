@@ -252,6 +252,11 @@ snack_lists = [popcorn, mms, pita_chips, water, orange_juice]
 #store surcharge multiplier
 surcharge_mult_list = []
 
+#Lists to store summary data...
+summary_headings = ["Popcorn", "M&M's", "Pita Chips", "Water", "Orange Juice", "Snack Profit", "Ticket Profit", "Total Profit"]
+
+summary_data = []
+
 #Data Frame Dictionary
 movie_data_dict = {
     'Name': all_names,
@@ -263,6 +268,12 @@ movie_data_dict = {
     'Orange Juice': orange_juice,
     'Surcharge Multiplier': surcharge_mult_list
     }
+
+#Summary Dictionary
+summary_data_dict = {
+  'Item': summary_headings,
+  'Amount': summary_data
+}
 
 #cost of each snack
 price_dict = {
@@ -386,6 +397,20 @@ movie_frame["Total"] = \
 movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ',
                                         'Pita Chips': 'Chips',
                                          'Surcharge Multiplier': 'SM'})
+
+# Set up Summary dataframe
+# populate snack items...
+for item in snack_lists:
+  # sum items in each snack list
+  summary_data.append(sum(item))
+
+# Get Snack profit
+# Get snack total from panda
+snack_total = movie_frame['Snacks'].sum()
+snack_profit = snack_total * 0.2
+summary_data.append(snack_profit)
+
+
 
 #set up columns to beprinted
 pandas.set_option('display.max_columns', None)
