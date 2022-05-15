@@ -410,9 +410,15 @@ snack_total = movie_frame['Snacks'].sum()
 snack_profit = snack_total * 0.2
 summary_data.append(snack_profit)
 
+#Get ticket profit and add to list
+ticket_profit = ticket_sales - (5 * ticket_count)
+summary_data.append(ticket_profit)
 
+#Work out total profit and add to list
+total_profit = snack_profit + ticket_profit
+summary_data.append(total_profit)
 
-#set up columns to beprinted
+#set up columns to be printed
 pandas.set_option('display.max_columns', None)
 
 #Display numbers to 2 dp
@@ -421,9 +427,6 @@ pandas.set_option('display.precision', 2)
 
 print(movie_frame[['Ticket', 'Snack Total', 'Sub Total', 'Surcharge', 'Total']])
 
-#calculate ticket profit
-ticket_profit = ticket_sales - (5 * ticket_count)
-print("\nTicket profit: ${:.2f}".format(ticket_profit))
 
 
 #tells user if they have unsold tickets...
