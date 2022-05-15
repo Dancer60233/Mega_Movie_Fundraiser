@@ -387,7 +387,8 @@ movie_frame["Total"] = \
 #Shorten Column names
 movie_frame = movie_frame.rename(columns={'Orange Juice': 'OJ',
                                         'Pita Chips': 'Chips',
-                                         'Surcharge Multiplier': 'SM'})
+                                         'Surcharge Multiplier': 'SM',
+                                         'Snack Total': 'Snacks'})
 
 # Set up Summary dataframe
 # populate snack items...
@@ -424,9 +425,9 @@ pandas.set_option('display.precision', 2)
 
 print("\n*** Ticket / Snack Information ***")
 print("Note: for full details, please see the excel file called \n")
-print(movie_frame[['Ticket', 'Snack Total', 'Sub Total', 'Surcharge', 'Total']])
+print(movie_frame[['Ticket', 'Snacks', 'Sub Total', 'Surcharge', 'Total']])
 
-print("\n*** Snack / Profit Summary ***\n")
+print("\n \n*** Snack / Profit Summary ***\n")
 print(summary_frame)
 
 
