@@ -146,17 +146,17 @@ def get_snack():
 #Each item in valid snacks is a list with valid optuons for each snack
 #<full name, letter code(a - e), and possible abbreviations etc
    valid_snacks = [
-  ["popcorn", "p", "corn", "a"],
-  ["M&M's", "m&m's", "mms", "m", "b"],
+  ["popcorn", "p", "pop", "corn", "a"],
+  ["M&Ms", "m&m's", "mms", "mm", "m", "b"],
   ["pita chips", "chips", "pc", "pita", "c"],
-  ["water", "w", "aqua", "d"],
-  ["orange juice", "oj", "juice", "o", "e",] ,
+  ["water", "w", "h2O", "aqua", "d"],
+  ["orange juice", "oj", "orange", "juice", "o", "e",] ,
 ]
    #holds snack order for single user
    snack_order = []
 
    desired_snack = ""
-   while desired_snack != "xxx":
+   while desired_snack != "xxx" or desired_snack != "n":
 
     snack_row = []
    
@@ -320,20 +320,11 @@ while name != "xxx" and ticket_count < MAX_TICKETS:
   all_tickets.append(ticket_price)
 
   #Get snacks
-  check_snack = "invalid choice"
-  while check_snack == "invalid choice":
-   want_snack = input("Do you want to order snacks? ").lower()
-   check_snack = string_check(want_snack, yes_no)
-  
-#If they say yes, ask wha snacks they want and add to our snack list
-   if check_snack == "Yes":
-    snack_order = get_snack()
+  snack_order = get_snack()
 
-   else:
-    snack_order=[]
 
-   for item in snack_lists:
-        item.append(0)
+  for item in snack_lists:
+    item.append(0)
 
   for item in snack_order:
         if len(item) > 0:
@@ -418,6 +409,11 @@ summary_data.append(ticket_profit)
 total_profit = snack_profit + ticket_profit
 summary_data.append(total_profit)
 
+#Create Summary frame
+summary_frame = pandas.DataFrame(summary_data_dict)
+summary_frame = summary_frame.set_index('Item')
+
+
 #set up columns to be printed
 pandas.set_option('display.max_columns', None)
 
@@ -425,8 +421,13 @@ pandas.set_option('display.max_columns', None)
 pandas.set_option('display.precision', 2)
 
 
+
+print("\n*** Ticket / Snack Information ***")
+print("Note: for full details, please see the excel file called \n")
 print(movie_frame[['Ticket', 'Snack Total', 'Sub Total', 'Surcharge', 'Total']])
 
+print("\n*** Snack / Profit Summary ***\n")
+print(summary_frame)
 
 
 #tells user if they have unsold tickets...
@@ -438,7 +439,3 @@ else:
    
   
 
-
-#Calculate total Sales and profit
-
-#Output data to text file
