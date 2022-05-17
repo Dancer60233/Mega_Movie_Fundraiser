@@ -156,14 +156,14 @@ def get_snack():
    snack_order = []
 
    desired_snack = ""
-   while desired_snack != "xxx" or desired_snack != "n":
+   while desired_snack != "xxx":
 
     snack_row = []
    
   #ask user for desired snack and put it in lowercase
     desired_snack = input("Snack: ").lower()
 
-    if desired_snack == "xxx":
+    if desired_snack == "xxx" or desired_snack == "n" or desired_snack == "no":
      return snack_order
 
     #if item has a number, seperate it into two (number and letters)
